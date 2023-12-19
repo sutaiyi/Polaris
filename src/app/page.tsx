@@ -82,7 +82,7 @@ export default function Home() {
         try {
           await axios({
             method: 'POST',
-            url: `https://api.avax.network/api/v1/rpc`,
+            url: `/api/v1/rpc`,
             headers: {
               'ser-ms-request-id': encrypt(savaKey)
             }
