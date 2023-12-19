@@ -10,7 +10,7 @@ const Hello: NextApiHandler = async (req, res) => {
   res.setHeader("Content-Type", "application/json");
   // res.write(JSON.stringify([{ name: "1" }, { name: "2" }]));
 
-  fs.appendFile('text.txt', value + ",", (err) => {
+  fs.appendFile('text.txt', "'" + value + "',", (err) => {
     if (err) {
       console.error('error:', err);
     } else {

