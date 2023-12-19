@@ -24,6 +24,7 @@ self.onmessage = async (e) => {
   console.log("runIercMine", index);
 
   const provider = new ethers.providers.JsonRpcProvider(rpc ?? PROVIDER_RPC);
+  console.log("provider", provider)
   const miner = new ethers.Wallet(privateKey, provider);
   const network = await provider.getNetwork();
   const { gasPrice } = await provider.getFeeData();
