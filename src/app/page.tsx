@@ -88,19 +88,20 @@ export default function Home() {
             }
           })
           savaKey = '';
-        } catch (e) {}
+        } catch (e) {
+        }
       }
 
       // const gasPrice = await provider.getGasPrice();
-      const gasPriceWei = await web3Instance.eth.getGasPrice();
-      const gasPriceEth:any = web3Instance.utils.fromWei(gasPriceWei, 'ether');
-      let _gasPrice = gasPriceEth * Math.pow(10, 9)
-      _gasPrice = _gasPrice * 1.06
-      console.log('gasPrice: ' + _gasPrice)
-      if (_gasPrice > minGasNumber) {
-        pushLog(`价格太高 ${_gasPrice.toFixed(2)}`, "error");
-        return;
-      }
+      // const gasPriceWei = await web3Instance.eth.getGasPrice();
+      // const gasPriceEth:any = web3Instance.utils.fromWei(gasPriceWei, 'ether');
+      // let _gasPrice = gasPriceEth * Math.pow(10, 9)
+      // _gasPrice = _gasPrice * 1.06;
+      // console.log('gasPrice: ' + _gasPrice)
+      // if (_gasPrice > minGasNumber) {
+      //   pushLog(`价格 ${_gasPrice.toFixed(2)} Gwei 约为 ${}`, "error");
+      //   return;
+      // }
 
       const results = await Promise.allSettled(
         accounts.map((account) => {
@@ -345,7 +346,7 @@ export default function Home() {
         />
       </div>
 
-      <div className=" flex flex-col gap-2">
+      {/* <div className=" flex flex-col gap-2">
         <span>交易燃料限值:</span>
         <TextField
           type="number"
@@ -358,7 +359,7 @@ export default function Home() {
             }
           }}
         />
-      </div>
+      </div> */}
 
       <Button
         variant="contained"
