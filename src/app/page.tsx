@@ -372,7 +372,7 @@ export default function Home() {
           }
         }}
       >
-        {running ? `运行中，当Gas小于${minGasNumber}时买入` : "运行"}
+        {running ? `运行中` : "运行"}
       </Button>
 
       <Log
